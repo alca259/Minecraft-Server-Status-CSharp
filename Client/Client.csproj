@@ -71,6 +71,7 @@
     <Reference Include="TelerikData, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic\AddressManager.cs" />
     <Compile Include="Logic\MCQuery.cs" />
     <Compile Include="Forms\MSS.cs">
       <SubType>Form</SubType>
@@ -86,6 +87,7 @@
     </Compile>
     <Compile Include="Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\AddressModel.cs" />
     <Compile Include="Utils\CustomLogger.cs" />
     <Compile Include="Utils\LogConfig.cs" />
     <Compile Include="Utils\Logger.cs" />
