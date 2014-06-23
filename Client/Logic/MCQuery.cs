@@ -164,14 +164,17 @@ namespace Client.Logic
             }
             catch (UnknownHostException ex)
             {
+                Logger.Warn(Messages.UnknownHost, ex);
                 MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (SocketException ex)
             {
+                Logger.Error(Messages.ServerError, ex);
                 MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
+                Logger.Fatal(Messages.ServerError, ex);
                 MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
