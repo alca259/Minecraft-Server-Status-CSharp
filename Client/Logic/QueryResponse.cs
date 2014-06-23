@@ -23,22 +23,22 @@ namespace Client.Logic
         #region Constructor
         public QueryResponse(byte[] data)
         {
-            List<byte[]> datos = SplitByteArray(data);
+            List<string> datos = SplitByteArray(data);
 
-            _motd = data[3].ToString();
-            _gameMode = data[5].ToString();
-            _gameID = data[7].ToString();
-            _version = data[9].ToString();
-            _plugins = data[11].ToString();
-            _mapName = data[13].ToString();
-            _onlinePlayers = int.Parse(data[15].ToString());
-            _maxPlayers = int.Parse(data[17].ToString());
-            _hostname = data[21].ToString();
+            _motd = datos[3];
+            _gameMode = datos[5];
+            _gameID = datos[7];
+            _version = datos[9];
+            _plugins = datos[10];
+            _mapName = datos[12];
+            _onlinePlayers = int.Parse(datos[14]);
+            _maxPlayers = int.Parse(datos[16]);
+            _hostname = datos[21];
 
             _playerList = new List<string>();
-            for (int i = 25; i < data.Length; i++)
+            for (int i = 24; i < datos.Count; i++)
             {
-                _playerList.Add(data[i].ToString());
+                _playerList.Add(datos[i]);
             }
 
         }
@@ -107,24 +107,24 @@ namespace Client.Logic
 
         #region Byte[] Utils
 
-        public List<byte[]> SplitByteArray(byte[] input)
+        public List<string> SplitByteArray(byte[] input)
         {
-            List<byte[]> output = new List<byte[]>();
-            byte[] builder = {};
-            int index = 0;
+            List<string> output = new List<string>();
+            List<byte> bytes = new List<byte>();
 
             foreach (byte bInput in input)
             {
-                if (bInput == 0x00 && builder.Length > 0)
+                if (bInput == 0x00)
                 {
-                    output.Add(builder);
-                    builder = new byte[]{};
-                    index = 0;
+                    if (bytes.Count <= 0) continue;
+
+                    string data = Encoding.UTF8.GetString(bytes.ToArray()).Trim();
+                    output.Add(data);
+                    bytes = new List<byte>();
                 }
                 else
                 {
-                    builder[index] = bInput;
-                    index++;
+                    bytes.Add(bInput);
                 }
             }
 
