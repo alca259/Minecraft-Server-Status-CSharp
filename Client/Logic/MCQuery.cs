@@ -2,22 +2,38 @@
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using System.Windows.Forms;
+using Client.Resources;
+using Client.Utils;
 
 namespace Client.Logic
 {
     public class MCQuery
     {
+        #region Vars
         private string _serverHost = "127.0.0.1";
         private int _serverPort = 25565;
+        private IPAddress[] hostIpAddresses;
         private UdpClient udpClient = new UdpClient();
         private IPEndPoint receivePoint;
         private IPEndPoint endPoint;
+        #endregion
 
+        #region Connect UDP
         private void StartUdpClient()
         {
-            IPAddress[] hostIpAddresses = Dns.GetHostAddresses(_serverHost);
+            try
+            {
+                hostIpAddresses = new IPAddress[]{};
+                hostIpAddresses = Dns.GetHostAddresses(_serverHost);
+            }
+            catch (SocketException)
+            {
+                throw new UnknownHostException();
+            }
 
             // Default IP Address
             if (hostIpAddresses.Length == 0)
@@ -30,21 +46,33 @@ namespace Client.Logic
             udpClient = new UdpClient();
         }
 
+        private bool PingServer()
+        {
+            Ping p = new Ping();
+            PingReply reply = p.Send(hostIpAddresses.First(), 3000);
+            return reply != null && reply.Status == IPStatus.Success;
+        }
+
         private byte[] Connect(byte[] inputBytes)
         {
+            // Ping minecraft server
+            if (!PingServer()) throw new UnknownHostException();
+
             // Connecting with minecraft server
             udpClient.Connect(endPoint);
 
             // Sending data
             udpClient.Send(inputBytes, inputBytes.Length);
 
-            // Receiving data
+            // Receiving data sync
             byte[] outputBytes = udpClient.Receive(ref receivePoint);
 
             // Returning data
             return outputBytes;
         }
+        #endregion
 
+        #region Minecraft Query Protocol
         private int Handshake()
         {
             // Declare vars
@@ -111,23 +139,45 @@ namespace Client.Logic
             // Return data
             return Connect(sendme);
         }
+        #endregion
 
-        public void Query(string serverHost, int serverPort)
+        #region Main function
+        public QueryResponse Query(string serverHost, int serverPort)
         {
-            // Assign data of server
+            QueryResponse response = new QueryResponse();
+            // Assign data of server to query
             _serverHost = serverHost;
             _serverPort = serverPort;
-            // Start client
-            StartUdpClient();
-            // Send handshake
-            int token = Handshake();
-            // Obtain full data
-            byte[] data = FullStats(token);
 
-            // Codificamos
-            data = Encoding.Convert(Encoding.GetEncoding("iso-8859-1"), Encoding.UTF8, data);
+            try
+            {
+                // Start client
+                StartUdpClient();
+                // Send handshake
+                int token = Handshake();
+                // Obtain full data
+                byte[] data = FullStats(token);
+                // Codificamos
+                data = Encoding.Convert(Encoding.GetEncoding("iso-8859-1"), Encoding.UTF8, data);
+                // Mapeamos las respuestas a un modelo
+                response = new QueryResponse(data);
+            }
+            catch (UnknownHostException ex)
+            {
+                MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SocketException ex)
+            {
+                MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            QueryResponse response = new QueryResponse(data);
+            // Devolvemos el modelo al formulario
+            return response;
         }
+        #endregion
     }
 }
