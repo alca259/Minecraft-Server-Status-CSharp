@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -32,15 +33,65 @@ namespace Client.Logic
         #region List Management
         private static bool Exists(AddressModel address)
         {
-            return false;
+            try
+            {
+                return _addresses.Any(w => w.HostIp == address.HostIp &&
+                                           w.HostPort == address.HostPort);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
         public static void Add(AddressModel address)
         {
-            
+            if (address != null && !Exists(address))
+            {
+                // Insert
+                _addresses.Add(address);
+                SetXml();
+            }
+            else if (address != null)
+            {
+                // Update
+                foreach (AddressModel model in _addresses.Where(w => w.Id == address.Id))
+                {
+                    model.HostIp = address.HostIp;
+                    model.HostPort = address.HostPort;
+                    model.Favorite = address.Favorite;
+                    SetXml();
+                }
+            }
         }
         public static void Remove(AddressModel address)
         {
-
+            if (address != null && Exists(address))
+            {
+                // Delete
+                _addresses.Remove(address);
+                SetXml();
+            }
+        }
+        public static List<AddressModel> GetAll()
+        {
+            return _addresses;
+        }
+        public static AddressModel Get(Guid Id)
+        {
+            return _addresses.Find(f => f.Id == Id);
+        }
+        public static AddressModel Get(string HostIp, string HostPort)
+        {
+            try
+            {
+                AddressModel model = _addresses.Find(w => w.HostIp == HostIp &&
+                                           w.HostPort == int.Parse(HostPort));
+                return model ?? new AddressModel();
+            }
+            catch (Exception)
+            {
+                return new AddressModel();
+            }
         }
         #endregion
 
@@ -69,13 +120,16 @@ namespace Client.Logic
             XDocument doc = XDocument.Load(_fullFilePath);
 
             // Nos recorremos todas y las guardamos
-            _addresses = (List<AddressModel>)from b in doc.Descendants("Address")
+            var data = from b in doc.Descendants("Address")
                 select new AddressModel
                 {
+                    Id = (Guid)b.Attribute("ID"),
                     HostIp = (string)b.Attribute("HOST_IP"),
                     HostPort = (int)b.Attribute("HOST_PORT"),
                     Favorite = (bool)b.Attribute("FAVORITE")
                 };
+
+            _addresses = data.ToList();
         }
 
         private static void SetXml()
@@ -95,6 +149,7 @@ namespace Client.Logic
             // Creamos un elemento
             XElement sectionXML = new XElement("Addresses", (
                 _addresses.Select(x => new XElement("Address",
+                    new XAttribute("ID", x.Id),
                     new XAttribute("HOST_IP", x.HostIp),
                     new XAttribute("HOST_PORT", x.HostPort),
                     new XAttribute("FAVORITE", x.Favorite)

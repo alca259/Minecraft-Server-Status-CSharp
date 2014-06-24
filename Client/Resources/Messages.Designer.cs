@@ -61,6 +61,24 @@ namespace Client.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¿Estás seguro de borrar este servidor?.
+        /// </summary>
+        internal static string AreYouSureToDelete {
+            get {
+                return ResourceManager.GetString("AreYouSureToDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirmar.
+        /// </summary>
+        internal static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error de servidor.
         /// </summary>
         internal static string ServerError {

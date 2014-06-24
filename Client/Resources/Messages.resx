@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AreYouSureToDelete" xml:space="preserve">
+    <value>¿Estás seguro de borrar este servidor?</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
   <data name="ServerError" xml:space="preserve">
     <value>Error de servidor</value>
   </data>
