@@ -3,62 +3,110 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using System.Xml.XPath;
 using Client.Utils;
 
 namespace Client.Logic
 {
     public static class AddressManager
     {
-        private static readonly string _fullPath = Path.Combine(Application.StartupPath, "AppData/");
+        #region Constants
         private const string _fileName = "Address.xml";
+        private const string _folderName = "AppData";
+        #endregion
 
+        #region Vars
+        private static string _fullDirPath;
+        private static string _fullFilePath;
+        private static List<AddressModel> _addresses = new List<AddressModel>();
+        #endregion
+
+        #region Initialize
+        public static void Initialize()
+        {
+            _fullDirPath = Path.Combine(Application.StartupPath, _folderName);
+            _fullFilePath = Path.Combine(_fullDirPath, _fileName);
+            GetXml();
+        }
+        #endregion
+
+        #region List Management
+        private static bool Exists(AddressModel address)
+        {
+            return false;
+        }
+        public static void Add(AddressModel address)
+        {
+            
+        }
+        public static void Remove(AddressModel address)
+        {
+
+        }
+        #endregion
+
+        #region Utils file & directory
         private static void CheckIfDirectoryExists()
         {
-            if (!Directory.Exists(_fullPath)) Directory.CreateDirectory(_fullPath);
+            if (!Directory.Exists(_fullDirPath)) Directory.CreateDirectory(_fullDirPath);
         }
 
         private static bool CheckIfFileExists()
         {
-            return File.Exists(Path.Combine(_fullPath, _fileName));
+            return File.Exists(_fullFilePath);
         }
+        #endregion
 
-        public static List<AddressModel> GetXml()
+        #region Load & Save XML
+        private static void GetXml()
         {
+            // Comprobamos si existe el directorio
             CheckIfDirectoryExists();
-            if (!CheckIfFileExists()) return new List<AddressModel>();
 
-            XDocument doc = XDocument.Load(Path.Combine(_fullPath, _fileName));
-            var addresses = from b in doc.Descendants("Address")
+            // Si no existe el fichero devolvemos
+            if (!CheckIfFileExists()) return;
+
+            // Cargamos el fichero XML
+            XDocument doc = XDocument.Load(_fullFilePath);
+
+            // Nos recorremos todas y las guardamos
+            _addresses = (List<AddressModel>)from b in doc.Descendants("Address")
                 select new AddressModel
                 {
-                    Favorite = (bool)b.Attribute("FAVORITE"),
                     HostIp = (string)b.Attribute("HOST_IP"),
-                    HostPort = (int)b.Attribute("HOST_PORT")
+                    HostPort = (int)b.Attribute("HOST_PORT"),
+                    Favorite = (bool)b.Attribute("FAVORITE")
                 };
-
-            return (List<AddressModel>) addresses;
         }
 
-        public static void SetXml(List<AddressModel> addresses)
+        private static void SetXml()
         {
+            // Comprobamos si existe el directorio
             CheckIfDirectoryExists();
+
+            // Si existe el fichero, lo borramos
             if (CheckIfFileExists())
             {
-                File.Delete(Path.Combine(_fullPath, _fileName));
+                File.Delete(_fullFilePath);
             }
 
+            // Creamos un nuevo XDocument
             XDocument xDocument = new XDocument();
 
+            // Creamos un elemento
             XElement sectionXML = new XElement("Addresses", (
-                addresses.Select(x => new XElement("Address",
+                _addresses.Select(x => new XElement("Address",
                     new XAttribute("HOST_IP", x.HostIp),
                     new XAttribute("HOST_PORT", x.HostPort),
                     new XAttribute("FAVORITE", x.Favorite)
             ))));
 
+            // Lo añadimos al XDocument
             xDocument.Add(sectionXML);
-            xDocument.Save(Path.Combine(_fullPath, _fileName), SaveOptions.None);
+
+            // Guardamos el XDocument en disco
+            xDocument.Save(_fullFilePath, SaveOptions.None);
         }
+        #endregion
     }
 }
+
