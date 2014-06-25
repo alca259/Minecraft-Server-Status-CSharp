@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Client.Forms;
+using Client.Utils;
 
 namespace Client
 {
@@ -14,6 +15,7 @@ namespace Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            LogConfig.Configure();
             Application.Run(new MSS());
         }
     }
