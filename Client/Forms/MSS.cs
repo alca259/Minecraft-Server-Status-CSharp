@@ -14,8 +14,9 @@ namespace Client.Forms
         #region Initialize
         public MSS()
         {
+            Font titleFont = new Font(FormElement.TitleBar.Font.FontFamily, 10.0F, FontStyle.Regular);
             InitializeComponent();
-            FormElement.TitleBar.TitlePrimitive.Font = new Font(FormElement.TitleBar.Font, FontStyle.Bold);
+            FormElement.TitleBar.TitlePrimitive.Font = titleFont;
             AddressManager.Initialize();
             ReloadAddressList();
         }
