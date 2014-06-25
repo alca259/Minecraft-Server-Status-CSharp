@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Client.Logic;
@@ -14,6 +15,7 @@ namespace Client.Forms
         public MSS()
         {
             InitializeComponent();
+            FormElement.TitleBar.TitlePrimitive.Font = new Font(FormElement.TitleBar.Font, FontStyle.Bold);
             AddressManager.Initialize();
             ReloadAddressList();
         }
