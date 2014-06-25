@@ -117,16 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutMe" xml:space="preserve">
+    <value>Developed by Alca259 &lt;alca259@gmail.com&gt;\nwith GPL license v3.0</value>
+  </data>
   <data name="AreYouSureToDelete" xml:space="preserve">
-    <value>¿Estás seguro de borrar este servidor?</value>
+    <value>Are you really want to delete this server?</value>
   </data>
   <data name="Confirm" xml:space="preserve">
-    <value>Confirmar</value>
+    <value>Confirm</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="LocalPingServer" xml:space="preserve">
+    <value>Local loading (0ms)</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="PingServer" xml:space="preserve">
+    <value>{0}ms</value>
+  </data>
+  <data name="PlayersOnline" xml:space="preserve">
+    <value>{0} of {1}</value>
+  </data>
+  <data name="ServerDontRespond" xml:space="preserve">
+    <value>The server does not respond at specified port</value>
   </data>
   <data name="ServerError" xml:space="preserve">
-    <value>Error de servidor</value>
+    <value>Server Error</value>
   </data>
   <data name="UnknownHost" xml:space="preserve">
-    <value>Servidor desconocido</value>
+    <value>Unknown host</value>
+  </data>
+  <data name="Vanilla" xml:space="preserve">
+    <value>Vanilla</value>
   </data>
 </root>

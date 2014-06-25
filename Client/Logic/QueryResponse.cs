@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Client.Resources;
 
 namespace Client.Logic 
 {
@@ -51,6 +52,11 @@ namespace Client.Logic
             {
                 _playerList.Add(players[i]);
             }
+
+            if (_playerList.Count == 0)
+            {
+                _playerList.Add(Messages.None);
+            }
         }
 
         private void SetPluginList(string pluginInfo)
@@ -58,8 +64,8 @@ namespace Client.Logic
             _pluginList = new List<string>();
             if (string.IsNullOrEmpty(pluginInfo))
             {
-                _serverInfo = "Vanilla";
-                _pluginList.Add("Ninguno");
+                _serverInfo = Messages.Vanilla;
+                _pluginList.Add(Messages.None);
             }
             else
             {
@@ -92,12 +98,16 @@ namespace Client.Logic
             return _mapName;
         }
 
-        public int GetOnlinePlayers()
+        public string GetPlayers()
+        {
+            return string.Format(Messages.PlayersOnline, GetOnlinePlayers(), GetMaxPlayers());
+        }
+        private int GetOnlinePlayers()
         {
             return _onlinePlayers;
         }
 
-        public int GetMaxPlayers()
+        private int GetMaxPlayers()
         {
             return _maxPlayers;
         }

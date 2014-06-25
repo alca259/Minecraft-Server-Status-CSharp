@@ -5,9 +5,11 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using Client.Resources;
 using Client.Utils;
+using Telerik.WinControls;
 
 namespace Client.Logic
 {
@@ -20,6 +22,10 @@ namespace Client.Logic
         private UdpClient udpClient = new UdpClient();
         private IPEndPoint receivePoint;
         private IPEndPoint endPoint;
+        public long timeReply;
+        private const long timeOut = 3000; // Miliseconds
+        private bool messageReceived = false;
+        private byte[] outputBytes;
         #endregion
 
         #region Connect UDP
@@ -48,9 +54,17 @@ namespace Client.Logic
 
         private bool PingServer()
         {
-            Ping p = new Ping();
-            PingReply reply = p.Send(hostIpAddresses.First(), 3000);
-            return reply != null && reply.Status == IPStatus.Success;
+            try
+            {
+                Ping p = new Ping();
+                PingReply reply = p.Send(hostIpAddresses.First(), 3000);
+                timeReply = reply.RoundtripTime;
+                return reply != null && reply.Status == IPStatus.Success;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private byte[] Connect(byte[] inputBytes)
@@ -64,11 +78,36 @@ namespace Client.Logic
             // Sending data
             udpClient.Send(inputBytes, inputBytes.Length);
 
-            // Receiving data sync
-            byte[] outputBytes = udpClient.Receive(ref receivePoint);
+            // Cleaning data of output
+            outputBytes = new byte[]{};
+            messageReceived = false;
+
+            // Set datetime of timeout
+            DateTime endTimeout = DateTime.Now.AddMilliseconds(timeOut);
+
+            // Receiving data async
+            udpClient.BeginReceive(ReceiveCallback, receivePoint);
+
+            while (!messageReceived)
+            {
+                Thread.Sleep(100);
+                if (DateTime.Now > endTimeout)
+                {
+                    throw new TimeoutException(Messages.ServerDontRespond);
+                }
+            }
+
+            // Receiving data sync - Block application if not receive data of port
+            // byte[] outputBytes = udpClient.Receive(ref receivePoint);
 
             // Returning data
             return outputBytes;
+        }
+
+        private void ReceiveCallback(IAsyncResult ar)
+        {
+            outputBytes = udpClient.EndReceive(ar, ref receivePoint);
+            messageReceived = true;
         }
         #endregion
 
@@ -165,17 +204,22 @@ namespace Client.Logic
             catch (UnknownHostException ex)
             {
                 Logger.Warn(Messages.UnknownHost, ex);
-                MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RadMessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, RadMessageIcon.Exclamation);
             }
             catch (SocketException ex)
             {
                 Logger.Error(Messages.ServerError, ex);
-                MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RadMessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, RadMessageIcon.Error);
+            }
+            catch (TimeoutException ex)
+            {
+                Logger.Warn(Messages.ServerDontRespond);
+                RadMessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, RadMessageIcon.Exclamation);
             }
             catch (Exception ex)
             {
                 Logger.Fatal(Messages.ServerError, ex);
-                MessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RadMessageBox.Show(ex.Message, Messages.ServerError, MessageBoxButtons.OK, RadMessageIcon.Error);
             }
 
             // Devolvemos el modelo al formulario

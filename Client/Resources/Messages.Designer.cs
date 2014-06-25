@@ -61,7 +61,16 @@ namespace Client.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¿Estás seguro de borrar este servidor?.
+        ///   Busca una cadena traducida similar a Developed by Alca259 &lt;alca259@gmail.com&gt;\nwith GPL license v3.0.
+        /// </summary>
+        internal static string AboutMe {
+            get {
+                return ResourceManager.GetString("AboutMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you really want to delete this server?.
         /// </summary>
         internal static string AreYouSureToDelete {
             get {
@@ -70,7 +79,7 @@ namespace Client.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Confirmar.
+        ///   Busca una cadena traducida similar a Confirm.
         /// </summary>
         internal static string Confirm {
             get {
@@ -79,7 +88,61 @@ namespace Client.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error de servidor.
+        ///   Busca una cadena traducida similar a Information.
+        /// </summary>
+        internal static string Info {
+            get {
+                return ResourceManager.GetString("Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Local loading (0ms).
+        /// </summary>
+        internal static string LocalPingServer {
+            get {
+                return ResourceManager.GetString("LocalPingServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a None.
+        /// </summary>
+        internal static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a {0}ms.
+        /// </summary>
+        internal static string PingServer {
+            get {
+                return ResourceManager.GetString("PingServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a {0} of {1}.
+        /// </summary>
+        internal static string PlayersOnline {
+            get {
+                return ResourceManager.GetString("PlayersOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The server does not respond at specified port.
+        /// </summary>
+        internal static string ServerDontRespond {
+            get {
+                return ResourceManager.GetString("ServerDontRespond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Server Error.
         /// </summary>
         internal static string ServerError {
             get {
@@ -88,11 +151,20 @@ namespace Client.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Servidor desconocido.
+        ///   Busca una cadena traducida similar a Unknown host.
         /// </summary>
         internal static string UnknownHost {
             get {
                 return ResourceManager.GetString("UnknownHost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Vanilla.
+        /// </summary>
+        internal static string Vanilla {
+            get {
+                return ResourceManager.GetString("Vanilla", resourceCulture);
             }
         }
     }

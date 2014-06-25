@@ -40,6 +40,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MSS));
             this.TemaVS2012Dark = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
             this.leftPanel = new Telerik.WinControls.UI.RadPanel();
+            this.addressListGroup = new Telerik.WinControls.UI.RadGroupBox();
             this.addressList = new Telerik.WinControls.UI.RadListView();
             this.addressPanelManager = new Telerik.WinControls.UI.RadPanel();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
@@ -47,31 +48,39 @@
             this.btnRefresh = new Telerik.WinControls.UI.RadButton();
             this.valFavorite = new Telerik.WinControls.UI.RadCheckBox();
             this.lblFavorite = new Telerik.WinControls.UI.RadLabel();
-            this.valHostPort = new Telerik.WinControls.UI.RadTextBox();
+            this.valHostPort = new Telerik.WinControls.UI.RadSpinEditor();
             this.lblHostPort = new Telerik.WinControls.UI.RadLabel();
             this.valHostIP = new Telerik.WinControls.UI.RadTextBox();
             this.lblHostIP = new Telerik.WinControls.UI.RadLabel();
             this.rightPanel = new Telerik.WinControls.UI.RadPanel();
             this.playersListGroup = new Telerik.WinControls.UI.RadGroupBox();
+            this.playersList = new Telerik.WinControls.UI.RadListView();
             this.centerPanel = new Telerik.WinControls.UI.RadPanel();
             this.pluginsPanel = new Telerik.WinControls.UI.RadPanel();
+            this.pluginsListGroup = new Telerik.WinControls.UI.RadGroupBox();
+            this.pluginsList = new Telerik.WinControls.UI.RadListView();
+            this.customCommandsServerPanel = new Telerik.WinControls.UI.RadPanel();
+            this.btnInfo = new Telerik.WinControls.UI.RadButton();
+            this.valServerResponse = new Telerik.WinControls.UI.RadLabel();
+            this.lblServerResponse = new Telerik.WinControls.UI.RadLabel();
             this.infoPanel = new Telerik.WinControls.UI.RadPanel();
             this.serverGroup = new Telerik.WinControls.UI.RadGroupBox();
-            this.minecraftGroup = new Telerik.WinControls.UI.RadGroupBox();
-            this.lblGameId = new Telerik.WinControls.UI.RadLabel();
-            this.customCommandsServerPanel = new Telerik.WinControls.UI.RadPanel();
-            this.pluginsListGroup = new Telerik.WinControls.UI.RadGroupBox();
-            this.serverGameIdPanel = new Telerik.WinControls.UI.RadPanel();
-            this.valGameId = new Telerik.WinControls.UI.RadLabel();
-            this.serverGameVersionPanel = new Telerik.WinControls.UI.RadPanel();
-            this.valMOTD = new Telerik.WinControls.UI.RadLabel();
-            this.lblMOTD = new Telerik.WinControls.UI.RadLabel();
-            this.serverHostIpPanel = new Telerik.WinControls.UI.RadPanel();
-            this.valServerHostIP = new Telerik.WinControls.UI.RadLabel();
-            this.lblServerHostIP = new Telerik.WinControls.UI.RadLabel();
+            this.gameServerInfoPanel = new Telerik.WinControls.UI.RadPanel();
+            this.valServerInfo = new Telerik.WinControls.UI.RadLabel();
+            this.lblServerInfo = new Telerik.WinControls.UI.RadLabel();
             this.serverHostPortPanel = new Telerik.WinControls.UI.RadPanel();
             this.valServerHostPort = new Telerik.WinControls.UI.RadLabel();
             this.lblServerHostPort = new Telerik.WinControls.UI.RadLabel();
+            this.serverHostIpPanel = new Telerik.WinControls.UI.RadPanel();
+            this.valServerHostIP = new Telerik.WinControls.UI.RadLabel();
+            this.lblServerHostIP = new Telerik.WinControls.UI.RadLabel();
+            this.serverGameVersionPanel = new Telerik.WinControls.UI.RadPanel();
+            this.valMOTD = new Telerik.WinControls.UI.RadLabel();
+            this.lblMOTD = new Telerik.WinControls.UI.RadLabel();
+            this.serverGameIdPanel = new Telerik.WinControls.UI.RadPanel();
+            this.valGameId = new Telerik.WinControls.UI.RadLabel();
+            this.lblGameId = new Telerik.WinControls.UI.RadLabel();
+            this.minecraftGroup = new Telerik.WinControls.UI.RadGroupBox();
             this.gameMapPanel = new Telerik.WinControls.UI.RadPanel();
             this.valGameMap = new Telerik.WinControls.UI.RadLabel();
             this.lblGameMap = new Telerik.WinControls.UI.RadLabel();
@@ -84,12 +93,11 @@
             this.gameModePanel = new Telerik.WinControls.UI.RadPanel();
             this.valGameMode = new Telerik.WinControls.UI.RadLabel();
             this.lblGameMode = new Telerik.WinControls.UI.RadLabel();
-            this.playersList = new Telerik.WinControls.UI.RadListView();
-            this.addressListGroup = new Telerik.WinControls.UI.RadGroupBox();
             this.object_da7cb646_7c5b_4312_ba82_62caea25b02a = new Telerik.WinControls.RootRadElement();
-            this.pluginsList = new Telerik.WinControls.UI.RadListView();
             ((System.ComponentModel.ISupportInitialize)(this.leftPanel)).BeginInit();
             this.leftPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addressListGroup)).BeginInit();
+            this.addressListGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressPanelManager)).BeginInit();
             this.addressPanelManager.SuspendLayout();
@@ -106,35 +114,45 @@
             this.rightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersListGroup)).BeginInit();
             this.playersListGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playersList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.centerPanel)).BeginInit();
             this.centerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pluginsPanel)).BeginInit();
             this.pluginsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsListGroup)).BeginInit();
+            this.pluginsListGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customCommandsServerPanel)).BeginInit();
+            this.customCommandsServerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valServerResponse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblServerResponse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoPanel)).BeginInit();
             this.infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serverGroup)).BeginInit();
             this.serverGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.minecraftGroup)).BeginInit();
-            this.minecraftGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lblGameId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customCommandsServerPanel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pluginsListGroup)).BeginInit();
-            this.pluginsListGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.serverGameIdPanel)).BeginInit();
-            this.serverGameIdPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.valGameId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.serverGameVersionPanel)).BeginInit();
-            this.serverGameVersionPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.valMOTD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblMOTD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.serverHostIpPanel)).BeginInit();
-            this.serverHostIpPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.valServerHostIP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblServerHostIP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameServerInfoPanel)).BeginInit();
+            this.gameServerInfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valServerInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblServerInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serverHostPortPanel)).BeginInit();
             this.serverHostPortPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valServerHostPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblServerHostPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serverHostIpPanel)).BeginInit();
+            this.serverHostIpPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valServerHostIP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblServerHostIP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serverGameVersionPanel)).BeginInit();
+            this.serverGameVersionPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valMOTD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblMOTD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serverGameIdPanel)).BeginInit();
+            this.serverGameIdPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valGameId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblGameId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minecraftGroup)).BeginInit();
+            this.minecraftGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameMapPanel)).BeginInit();
             this.gameMapPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valGameMap)).BeginInit();
@@ -151,10 +169,6 @@
             this.gameModePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valGameMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblGameMode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressListGroup)).BeginInit();
-            this.addressListGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pluginsList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,6 +183,20 @@
             this.leftPanel.TabIndex = 0;
             this.leftPanel.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.leftPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // addressListGroup
+            // 
+            this.addressListGroup.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.addressListGroup.Controls.Add(this.addressList);
+            this.addressListGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addressListGroup.HeaderText = "Servers List";
+            this.addressListGroup.Location = new System.Drawing.Point(0, 0);
+            this.addressListGroup.Name = "addressListGroup";
+            this.addressListGroup.Padding = new System.Windows.Forms.Padding(2, 25, 2, 2);
+            this.addressListGroup.Size = new System.Drawing.Size(228, 442);
+            this.addressListGroup.TabIndex = 3;
+            this.addressListGroup.Text = "Servers List";
+            this.addressListGroup.ThemeName = "VisualStudio2012Dark";
             // 
             // addressList
             // 
@@ -272,12 +300,27 @@
             // valHostPort
             // 
             this.valHostPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.valHostPort.Location = new System.Drawing.Point(94, 34);
+            this.valHostPort.Location = new System.Drawing.Point(94, 30);
+            this.valHostPort.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.valHostPort.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.valHostPort.Name = "valHostPort";
-            this.valHostPort.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.valHostPort.Size = new System.Drawing.Size(128, 20);
-            this.valHostPort.TabIndex = 3;
+            this.valHostPort.Size = new System.Drawing.Size(128, 22);
+            this.valHostPort.TabIndex = 8;
+            this.valHostPort.TabStop = false;
             this.valHostPort.ThemeName = "VisualStudio2012Dark";
+            this.valHostPort.Value = new decimal(new int[] {
+            25565,
+            0,
+            0,
+            0});
             // 
             // lblHostPort
             // 
@@ -296,7 +339,7 @@
             this.valHostIP.Location = new System.Drawing.Point(94, 6);
             this.valHostIP.Name = "valHostIP";
             this.valHostIP.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.valHostIP.Size = new System.Drawing.Size(128, 20);
+            this.valHostIP.Size = new System.Drawing.Size(128, 17);
             this.valHostIP.TabIndex = 2;
             this.valHostIP.ThemeName = "VisualStudio2012Dark";
             // 
@@ -315,9 +358,9 @@
             // 
             this.rightPanel.Controls.Add(this.playersListGroup);
             this.rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rightPanel.Location = new System.Drawing.Point(592, 0);
+            this.rightPanel.Location = new System.Drawing.Point(554, 0);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(200, 570);
+            this.rightPanel.Size = new System.Drawing.Size(238, 570);
             this.rightPanel.TabIndex = 1;
             this.rightPanel.TabStop = false;
             this.rightPanel.ThemeName = "VisualStudio2012Dark";
@@ -332,10 +375,38 @@
             this.playersListGroup.Location = new System.Drawing.Point(0, 0);
             this.playersListGroup.Name = "playersListGroup";
             this.playersListGroup.Padding = new System.Windows.Forms.Padding(2, 25, 2, 2);
-            this.playersListGroup.Size = new System.Drawing.Size(200, 570);
+            this.playersListGroup.Size = new System.Drawing.Size(238, 570);
             this.playersListGroup.TabIndex = 2;
             this.playersListGroup.Text = "Players List";
             this.playersListGroup.ThemeName = "VisualStudio2012Dark";
+            // 
+            // playersList
+            // 
+            this.playersList.AllowColumnReorder = false;
+            this.playersList.AllowColumnResize = false;
+            this.playersList.AllowEdit = false;
+            this.playersList.AllowRemove = false;
+            listViewDetailColumn4.HeaderText = "Host IP";
+            listViewDetailColumn5.HeaderText = "Port";
+            listViewDetailColumn5.MinWidth = 40F;
+            listViewDetailColumn5.Width = 60F;
+            listViewDetailColumn6.HeaderText = "Fav";
+            listViewDetailColumn6.MaxWidth = 40F;
+            listViewDetailColumn6.Width = 40F;
+            this.playersList.Columns.AddRange(new Telerik.WinControls.UI.ListViewDetailColumn[] {
+            listViewDetailColumn4,
+            listViewDetailColumn5,
+            listViewDetailColumn6});
+            this.playersList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playersList.EnableColumnSort = true;
+            this.playersList.EnableFiltering = true;
+            this.playersList.EnableSorting = true;
+            this.playersList.Location = new System.Drawing.Point(2, 25);
+            this.playersList.Name = "playersList";
+            this.playersList.Size = new System.Drawing.Size(234, 543);
+            this.playersList.TabIndex = 1;
+            this.playersList.TabStop = false;
+            this.playersList.ThemeName = "VisualStudio2012Dark";
             // 
             // centerPanel
             // 
@@ -345,7 +416,7 @@
             this.centerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.centerPanel.Location = new System.Drawing.Point(228, 0);
             this.centerPanel.Name = "centerPanel";
-            this.centerPanel.Size = new System.Drawing.Size(364, 570);
+            this.centerPanel.Size = new System.Drawing.Size(326, 570);
             this.centerPanel.TabIndex = 2;
             this.centerPanel.TabStop = false;
             this.centerPanel.ThemeName = "VisualStudio2012Dark";
@@ -356,84 +427,13 @@
             // 
             this.pluginsPanel.Controls.Add(this.pluginsListGroup);
             this.pluginsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pluginsPanel.Location = new System.Drawing.Point(0, 124);
+            this.pluginsPanel.Location = new System.Drawing.Point(0, 132);
             this.pluginsPanel.Name = "pluginsPanel";
-            this.pluginsPanel.Size = new System.Drawing.Size(364, 380);
+            this.pluginsPanel.Size = new System.Drawing.Size(326, 413);
             this.pluginsPanel.TabIndex = 3;
             this.pluginsPanel.TabStop = false;
             this.pluginsPanel.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.pluginsPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
-            // 
-            // infoPanel
-            // 
-            this.infoPanel.Controls.Add(this.serverGroup);
-            this.infoPanel.Controls.Add(this.minecraftGroup);
-            this.infoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.infoPanel.Location = new System.Drawing.Point(0, 0);
-            this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(364, 124);
-            this.infoPanel.TabIndex = 2;
-            this.infoPanel.TabStop = false;
-            this.infoPanel.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.infoPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
-            // 
-            // serverGroup
-            // 
-            this.serverGroup.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.serverGroup.Controls.Add(this.serverHostPortPanel);
-            this.serverGroup.Controls.Add(this.serverHostIpPanel);
-            this.serverGroup.Controls.Add(this.serverGameVersionPanel);
-            this.serverGroup.Controls.Add(this.serverGameIdPanel);
-            this.serverGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serverGroup.HeaderText = "Server Info";
-            this.serverGroup.Location = new System.Drawing.Point(0, 0);
-            this.serverGroup.Name = "serverGroup";
-            this.serverGroup.Padding = new System.Windows.Forms.Padding(10, 18, 2, 2);
-            this.serverGroup.Size = new System.Drawing.Size(175, 124);
-            this.serverGroup.TabIndex = 0;
-            this.serverGroup.Text = "Server Info";
-            this.serverGroup.ThemeName = "VisualStudio2012Dark";
-            // 
-            // minecraftGroup
-            // 
-            this.minecraftGroup.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.minecraftGroup.Controls.Add(this.gameMapPanel);
-            this.minecraftGroup.Controls.Add(this.gamePlayersPanel);
-            this.minecraftGroup.Controls.Add(this.gameVersionPanel);
-            this.minecraftGroup.Controls.Add(this.gameModePanel);
-            this.minecraftGroup.Dock = System.Windows.Forms.DockStyle.Right;
-            this.minecraftGroup.HeaderText = "Minecraft Info";
-            this.minecraftGroup.Location = new System.Drawing.Point(175, 0);
-            this.minecraftGroup.Name = "minecraftGroup";
-            this.minecraftGroup.Padding = new System.Windows.Forms.Padding(10, 18, 2, 2);
-            this.minecraftGroup.Size = new System.Drawing.Size(189, 124);
-            this.minecraftGroup.TabIndex = 1;
-            this.minecraftGroup.Text = "Minecraft Info";
-            this.minecraftGroup.ThemeName = "VisualStudio2012Dark";
-            // 
-            // lblGameId
-            // 
-            this.lblGameId.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblGameId.Location = new System.Drawing.Point(0, 0);
-            this.lblGameId.Name = "lblGameId";
-            this.lblGameId.Size = new System.Drawing.Size(52, 18);
-            this.lblGameId.TabIndex = 1;
-            this.lblGameId.Text = "Game ID:";
-            this.lblGameId.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.UI.RadLabelElement)(this.lblGameId.GetChildAt(0))).Text = "Game ID:";
-            ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblGameId.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
-            // 
-            // customCommandsServerPanel
-            // 
-            this.customCommandsServerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
-            this.customCommandsServerPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.customCommandsServerPanel.Location = new System.Drawing.Point(0, 504);
-            this.customCommandsServerPanel.Name = "customCommandsServerPanel";
-            this.customCommandsServerPanel.Size = new System.Drawing.Size(364, 66);
-            this.customCommandsServerPanel.TabIndex = 4;
-            this.customCommandsServerPanel.TabStop = false;
-            this.customCommandsServerPanel.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.customCommandsServerPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 
             // pluginsListGroup
             // 
@@ -445,110 +445,164 @@
             this.pluginsListGroup.Location = new System.Drawing.Point(0, 0);
             this.pluginsListGroup.Name = "pluginsListGroup";
             this.pluginsListGroup.Padding = new System.Windows.Forms.Padding(2, 25, 2, 2);
-            this.pluginsListGroup.Size = new System.Drawing.Size(364, 380);
+            this.pluginsListGroup.Size = new System.Drawing.Size(326, 413);
             this.pluginsListGroup.TabIndex = 3;
             this.pluginsListGroup.Text = "Plugins List";
             this.pluginsListGroup.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadGroupBoxElement)(this.pluginsListGroup.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(2, 25, 2, 2);
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.pluginsListGroup.GetChildAt(0).GetChildAt(1).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
             // 
-            // serverGameIdPanel
+            // pluginsList
             // 
-            this.serverGameIdPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
-            this.serverGameIdPanel.Controls.Add(this.valGameId);
-            this.serverGameIdPanel.Controls.Add(this.lblGameId);
-            this.serverGameIdPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.serverGameIdPanel.Location = new System.Drawing.Point(10, 18);
-            this.serverGameIdPanel.Name = "serverGameIdPanel";
-            this.serverGameIdPanel.Size = new System.Drawing.Size(163, 22);
-            this.serverGameIdPanel.TabIndex = 5;
-            this.serverGameIdPanel.TabStop = false;
-            this.serverGameIdPanel.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.serverGameIdPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            this.pluginsList.AllowColumnReorder = false;
+            this.pluginsList.AllowColumnResize = false;
+            this.pluginsList.AllowEdit = false;
+            this.pluginsList.AllowRemove = false;
+            listViewDetailColumn7.HeaderText = "Host IP";
+            listViewDetailColumn8.HeaderText = "Port";
+            listViewDetailColumn8.MinWidth = 40F;
+            listViewDetailColumn8.Width = 60F;
+            listViewDetailColumn9.HeaderText = "Fav";
+            listViewDetailColumn9.MaxWidth = 40F;
+            listViewDetailColumn9.Width = 40F;
+            this.pluginsList.Columns.AddRange(new Telerik.WinControls.UI.ListViewDetailColumn[] {
+            listViewDetailColumn7,
+            listViewDetailColumn8,
+            listViewDetailColumn9});
+            this.pluginsList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pluginsList.EnableColumnSort = true;
+            this.pluginsList.EnableFiltering = true;
+            this.pluginsList.EnableSorting = true;
+            this.pluginsList.Location = new System.Drawing.Point(2, 25);
+            this.pluginsList.Name = "pluginsList";
+            this.pluginsList.Size = new System.Drawing.Size(322, 386);
+            this.pluginsList.TabIndex = 2;
+            this.pluginsList.TabStop = false;
+            this.pluginsList.ThemeName = "VisualStudio2012Dark";
             // 
-            // valGameId
+            // customCommandsServerPanel
             // 
-            this.valGameId.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valGameId.Location = new System.Drawing.Point(161, 0);
-            this.valGameId.Name = "valGameId";
-            this.valGameId.Size = new System.Drawing.Size(2, 2);
-            this.valGameId.TabIndex = 2;
-            this.valGameId.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.UI.RadLabelElement)(this.valGameId.GetChildAt(0))).Text = "";
-            ((Telerik.WinControls.Primitives.FillPrimitive)(this.valGameId.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.customCommandsServerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.customCommandsServerPanel.Controls.Add(this.btnInfo);
+            this.customCommandsServerPanel.Controls.Add(this.valServerResponse);
+            this.customCommandsServerPanel.Controls.Add(this.lblServerResponse);
+            this.customCommandsServerPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.customCommandsServerPanel.Location = new System.Drawing.Point(0, 545);
+            this.customCommandsServerPanel.Name = "customCommandsServerPanel";
+            this.customCommandsServerPanel.Size = new System.Drawing.Size(326, 25);
+            this.customCommandsServerPanel.TabIndex = 4;
+            this.customCommandsServerPanel.TabStop = false;
+            this.customCommandsServerPanel.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.customCommandsServerPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 
-            // serverGameVersionPanel
+            // btnInfo
             // 
-            this.serverGameVersionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
-            this.serverGameVersionPanel.Controls.Add(this.valMOTD);
-            this.serverGameVersionPanel.Controls.Add(this.lblMOTD);
-            this.serverGameVersionPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.serverGameVersionPanel.Location = new System.Drawing.Point(10, 40);
-            this.serverGameVersionPanel.Name = "serverGameVersionPanel";
-            this.serverGameVersionPanel.Size = new System.Drawing.Size(163, 22);
-            this.serverGameVersionPanel.TabIndex = 6;
-            this.serverGameVersionPanel.TabStop = false;
-            this.serverGameVersionPanel.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.serverGameVersionPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            this.btnInfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnInfo.Image = global::Client.Properties.Resources.info;
+            this.btnInfo.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnInfo.Location = new System.Drawing.Point(301, 0);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(25, 25);
+            this.btnInfo.TabIndex = 8;
+            this.btnInfo.ThemeName = "VisualStudio2012Dark";
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.btnInfo.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.btnInfo.GetChildAt(0).GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 
-            // valMOTD
+            // valServerResponse
             // 
-            this.valMOTD.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valMOTD.Location = new System.Drawing.Point(161, 0);
-            this.valMOTD.Name = "valMOTD";
-            this.valMOTD.Size = new System.Drawing.Size(2, 2);
-            this.valMOTD.TabIndex = 2;
-            this.valMOTD.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.UI.RadLabelElement)(this.valMOTD.GetChildAt(0))).Text = "";
-            ((Telerik.WinControls.Primitives.FillPrimitive)(this.valMOTD.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.valServerResponse.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valServerResponse.Location = new System.Drawing.Point(88, 0);
+            this.valServerResponse.Name = "valServerResponse";
+            this.valServerResponse.Size = new System.Drawing.Size(2, 25);
+            this.valServerResponse.TabIndex = 3;
+            this.valServerResponse.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.valServerResponse.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.valServerResponse.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.UI.RadLabelElement)(this.valServerResponse.GetChildAt(0))).Text = "";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.valServerResponse.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
             // 
-            // lblMOTD
+            // lblServerResponse
             // 
-            this.lblMOTD.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblMOTD.Location = new System.Drawing.Point(0, 0);
-            this.lblMOTD.Name = "lblMOTD";
-            this.lblMOTD.Size = new System.Drawing.Size(41, 18);
-            this.lblMOTD.TabIndex = 1;
-            this.lblMOTD.Text = "MOTD:";
-            this.lblMOTD.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.UI.RadLabelElement)(this.lblMOTD.GetChildAt(0))).Text = "MOTD:";
-            ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblMOTD.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.lblServerResponse.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblServerResponse.Location = new System.Drawing.Point(0, 0);
+            this.lblServerResponse.Name = "lblServerResponse";
+            this.lblServerResponse.Size = new System.Drawing.Size(88, 25);
+            this.lblServerResponse.TabIndex = 2;
+            this.lblServerResponse.Text = "Server response:";
+            this.lblServerResponse.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblServerResponse.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.lblServerResponse.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.UI.RadLabelElement)(this.lblServerResponse.GetChildAt(0))).Text = "Server response:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblServerResponse.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
             // 
-            // serverHostIpPanel
+            // infoPanel
             // 
-            this.serverHostIpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
-            this.serverHostIpPanel.Controls.Add(this.valServerHostIP);
-            this.serverHostIpPanel.Controls.Add(this.lblServerHostIP);
-            this.serverHostIpPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.serverHostIpPanel.Location = new System.Drawing.Point(10, 62);
-            this.serverHostIpPanel.Name = "serverHostIpPanel";
-            this.serverHostIpPanel.Size = new System.Drawing.Size(163, 22);
-            this.serverHostIpPanel.TabIndex = 7;
-            this.serverHostIpPanel.TabStop = false;
-            this.serverHostIpPanel.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.serverHostIpPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            this.infoPanel.Controls.Add(this.serverGroup);
+            this.infoPanel.Controls.Add(this.minecraftGroup);
+            this.infoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.infoPanel.Location = new System.Drawing.Point(0, 0);
+            this.infoPanel.Name = "infoPanel";
+            this.infoPanel.Size = new System.Drawing.Size(326, 132);
+            this.infoPanel.TabIndex = 2;
+            this.infoPanel.TabStop = false;
+            this.infoPanel.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.infoPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 
-            // valServerHostIP
+            // serverGroup
             // 
-            this.valServerHostIP.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valServerHostIP.Location = new System.Drawing.Point(161, 0);
-            this.valServerHostIP.Name = "valServerHostIP";
-            this.valServerHostIP.Size = new System.Drawing.Size(2, 2);
-            this.valServerHostIP.TabIndex = 2;
-            this.valServerHostIP.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.UI.RadLabelElement)(this.valServerHostIP.GetChildAt(0))).Text = "";
-            ((Telerik.WinControls.Primitives.FillPrimitive)(this.valServerHostIP.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.serverGroup.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.serverGroup.Controls.Add(this.gameServerInfoPanel);
+            this.serverGroup.Controls.Add(this.serverHostPortPanel);
+            this.serverGroup.Controls.Add(this.serverHostIpPanel);
+            this.serverGroup.Controls.Add(this.serverGameVersionPanel);
+            this.serverGroup.Controls.Add(this.serverGameIdPanel);
+            this.serverGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serverGroup.HeaderText = "Server Info";
+            this.serverGroup.Location = new System.Drawing.Point(0, 0);
+            this.serverGroup.Name = "serverGroup";
+            this.serverGroup.Padding = new System.Windows.Forms.Padding(10, 18, 2, 2);
+            this.serverGroup.Size = new System.Drawing.Size(137, 132);
+            this.serverGroup.TabIndex = 0;
+            this.serverGroup.Text = "Server Info";
+            this.serverGroup.ThemeName = "VisualStudio2012Dark";
             // 
-            // lblServerHostIP
+            // gameServerInfoPanel
             // 
-            this.lblServerHostIP.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblServerHostIP.Location = new System.Drawing.Point(0, 0);
-            this.lblServerHostIP.Name = "lblServerHostIP";
-            this.lblServerHostIP.Size = new System.Drawing.Size(44, 18);
-            this.lblServerHostIP.TabIndex = 1;
-            this.lblServerHostIP.Text = "Host IP:";
-            this.lblServerHostIP.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.UI.RadLabelElement)(this.lblServerHostIP.GetChildAt(0))).Text = "Host IP:";
-            ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblServerHostIP.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.gameServerInfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.gameServerInfoPanel.Controls.Add(this.valServerInfo);
+            this.gameServerInfoPanel.Controls.Add(this.lblServerInfo);
+            this.gameServerInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gameServerInfoPanel.Location = new System.Drawing.Point(10, 106);
+            this.gameServerInfoPanel.Name = "gameServerInfoPanel";
+            this.gameServerInfoPanel.Size = new System.Drawing.Size(125, 22);
+            this.gameServerInfoPanel.TabIndex = 9;
+            this.gameServerInfoPanel.TabStop = false;
+            this.gameServerInfoPanel.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.gameServerInfoPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // valServerInfo
+            // 
+            this.valServerInfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.valServerInfo.Location = new System.Drawing.Point(123, 0);
+            this.valServerInfo.Name = "valServerInfo";
+            this.valServerInfo.Size = new System.Drawing.Size(2, 22);
+            this.valServerInfo.TabIndex = 2;
+            this.valServerInfo.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.valServerInfo.GetChildAt(0))).Text = "";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.valServerInfo.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            // 
+            // lblServerInfo
+            // 
+            this.lblServerInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblServerInfo.Location = new System.Drawing.Point(0, 0);
+            this.lblServerInfo.Name = "lblServerInfo";
+            this.lblServerInfo.Size = new System.Drawing.Size(40, 22);
+            this.lblServerInfo.TabIndex = 1;
+            this.lblServerInfo.Text = "Server:";
+            this.lblServerInfo.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.lblServerInfo.GetChildAt(0))).Text = "Server:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblServerInfo.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
             // 
             // serverHostPortPanel
             // 
@@ -558,7 +612,7 @@
             this.serverHostPortPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.serverHostPortPanel.Location = new System.Drawing.Point(10, 84);
             this.serverHostPortPanel.Name = "serverHostPortPanel";
-            this.serverHostPortPanel.Size = new System.Drawing.Size(163, 22);
+            this.serverHostPortPanel.Size = new System.Drawing.Size(125, 22);
             this.serverHostPortPanel.TabIndex = 8;
             this.serverHostPortPanel.TabStop = false;
             this.serverHostPortPanel.ThemeName = "VisualStudio2012Dark";
@@ -567,9 +621,9 @@
             // valServerHostPort
             // 
             this.valServerHostPort.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valServerHostPort.Location = new System.Drawing.Point(161, 0);
+            this.valServerHostPort.Location = new System.Drawing.Point(123, 0);
             this.valServerHostPort.Name = "valServerHostPort";
-            this.valServerHostPort.Size = new System.Drawing.Size(2, 2);
+            this.valServerHostPort.Size = new System.Drawing.Size(2, 22);
             this.valServerHostPort.TabIndex = 2;
             this.valServerHostPort.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valServerHostPort.GetChildAt(0))).Text = "";
@@ -580,12 +634,140 @@
             this.lblServerHostPort.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblServerHostPort.Location = new System.Drawing.Point(0, 0);
             this.lblServerHostPort.Name = "lblServerHostPort";
-            this.lblServerHostPort.Size = new System.Drawing.Size(52, 22);
+            this.lblServerHostPort.Size = new System.Drawing.Size(56, 22);
             this.lblServerHostPort.TabIndex = 1;
-            this.lblServerHostPort.Text = "Game ID:";
+            this.lblServerHostPort.Text = "Host Port:";
             this.lblServerHostPort.ThemeName = "VisualStudio2012Dark";
-            ((Telerik.WinControls.UI.RadLabelElement)(this.lblServerHostPort.GetChildAt(0))).Text = "Game ID:";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.lblServerHostPort.GetChildAt(0))).Text = "Host Port:";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblServerHostPort.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            // 
+            // serverHostIpPanel
+            // 
+            this.serverHostIpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.serverHostIpPanel.Controls.Add(this.valServerHostIP);
+            this.serverHostIpPanel.Controls.Add(this.lblServerHostIP);
+            this.serverHostIpPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.serverHostIpPanel.Location = new System.Drawing.Point(10, 62);
+            this.serverHostIpPanel.Name = "serverHostIpPanel";
+            this.serverHostIpPanel.Size = new System.Drawing.Size(125, 22);
+            this.serverHostIpPanel.TabIndex = 7;
+            this.serverHostIpPanel.TabStop = false;
+            this.serverHostIpPanel.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.serverHostIpPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // valServerHostIP
+            // 
+            this.valServerHostIP.Dock = System.Windows.Forms.DockStyle.Right;
+            this.valServerHostIP.Location = new System.Drawing.Point(123, 0);
+            this.valServerHostIP.Name = "valServerHostIP";
+            this.valServerHostIP.Size = new System.Drawing.Size(2, 22);
+            this.valServerHostIP.TabIndex = 2;
+            this.valServerHostIP.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.valServerHostIP.GetChildAt(0))).Text = "";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.valServerHostIP.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            // 
+            // lblServerHostIP
+            // 
+            this.lblServerHostIP.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblServerHostIP.Location = new System.Drawing.Point(0, 0);
+            this.lblServerHostIP.Name = "lblServerHostIP";
+            this.lblServerHostIP.Size = new System.Drawing.Size(44, 22);
+            this.lblServerHostIP.TabIndex = 1;
+            this.lblServerHostIP.Text = "Host IP:";
+            this.lblServerHostIP.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.lblServerHostIP.GetChildAt(0))).Text = "Host IP:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblServerHostIP.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            // 
+            // serverGameVersionPanel
+            // 
+            this.serverGameVersionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.serverGameVersionPanel.Controls.Add(this.valMOTD);
+            this.serverGameVersionPanel.Controls.Add(this.lblMOTD);
+            this.serverGameVersionPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.serverGameVersionPanel.Location = new System.Drawing.Point(10, 40);
+            this.serverGameVersionPanel.Name = "serverGameVersionPanel";
+            this.serverGameVersionPanel.Size = new System.Drawing.Size(125, 22);
+            this.serverGameVersionPanel.TabIndex = 6;
+            this.serverGameVersionPanel.TabStop = false;
+            this.serverGameVersionPanel.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.serverGameVersionPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // valMOTD
+            // 
+            this.valMOTD.Dock = System.Windows.Forms.DockStyle.Right;
+            this.valMOTD.Location = new System.Drawing.Point(123, 0);
+            this.valMOTD.Name = "valMOTD";
+            this.valMOTD.Size = new System.Drawing.Size(2, 22);
+            this.valMOTD.TabIndex = 2;
+            this.valMOTD.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.valMOTD.GetChildAt(0))).Text = "";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.valMOTD.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            // 
+            // lblMOTD
+            // 
+            this.lblMOTD.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMOTD.Location = new System.Drawing.Point(0, 0);
+            this.lblMOTD.Name = "lblMOTD";
+            this.lblMOTD.Size = new System.Drawing.Size(41, 22);
+            this.lblMOTD.TabIndex = 1;
+            this.lblMOTD.Text = "MOTD:";
+            this.lblMOTD.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.lblMOTD.GetChildAt(0))).Text = "MOTD:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblMOTD.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            // 
+            // serverGameIdPanel
+            // 
+            this.serverGameIdPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            this.serverGameIdPanel.Controls.Add(this.valGameId);
+            this.serverGameIdPanel.Controls.Add(this.lblGameId);
+            this.serverGameIdPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.serverGameIdPanel.Location = new System.Drawing.Point(10, 18);
+            this.serverGameIdPanel.Name = "serverGameIdPanel";
+            this.serverGameIdPanel.Size = new System.Drawing.Size(125, 22);
+            this.serverGameIdPanel.TabIndex = 5;
+            this.serverGameIdPanel.TabStop = false;
+            this.serverGameIdPanel.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.serverGameIdPanel.GetChildAt(0).GetChildAt(1))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // valGameId
+            // 
+            this.valGameId.Dock = System.Windows.Forms.DockStyle.Right;
+            this.valGameId.Location = new System.Drawing.Point(123, 0);
+            this.valGameId.Name = "valGameId";
+            this.valGameId.Size = new System.Drawing.Size(2, 22);
+            this.valGameId.TabIndex = 2;
+            this.valGameId.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.valGameId.GetChildAt(0))).Text = "";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.valGameId.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            // 
+            // lblGameId
+            // 
+            this.lblGameId.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblGameId.Location = new System.Drawing.Point(0, 0);
+            this.lblGameId.Name = "lblGameId";
+            this.lblGameId.Size = new System.Drawing.Size(52, 22);
+            this.lblGameId.TabIndex = 1;
+            this.lblGameId.Text = "Game ID:";
+            this.lblGameId.ThemeName = "VisualStudio2012Dark";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.lblGameId.GetChildAt(0))).Text = "Game ID:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblGameId.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
+            // 
+            // minecraftGroup
+            // 
+            this.minecraftGroup.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.minecraftGroup.Controls.Add(this.gameMapPanel);
+            this.minecraftGroup.Controls.Add(this.gamePlayersPanel);
+            this.minecraftGroup.Controls.Add(this.gameVersionPanel);
+            this.minecraftGroup.Controls.Add(this.gameModePanel);
+            this.minecraftGroup.Dock = System.Windows.Forms.DockStyle.Right;
+            this.minecraftGroup.HeaderText = "Minecraft Info";
+            this.minecraftGroup.Location = new System.Drawing.Point(137, 0);
+            this.minecraftGroup.Name = "minecraftGroup";
+            this.minecraftGroup.Padding = new System.Windows.Forms.Padding(10, 18, 2, 2);
+            this.minecraftGroup.Size = new System.Drawing.Size(189, 132);
+            this.minecraftGroup.TabIndex = 1;
+            this.minecraftGroup.Text = "Minecraft Info";
+            this.minecraftGroup.ThemeName = "VisualStudio2012Dark";
             // 
             // gameMapPanel
             // 
@@ -606,7 +788,7 @@
             this.valGameMap.Dock = System.Windows.Forms.DockStyle.Right;
             this.valGameMap.Location = new System.Drawing.Point(175, 0);
             this.valGameMap.Name = "valGameMap";
-            this.valGameMap.Size = new System.Drawing.Size(2, 2);
+            this.valGameMap.Size = new System.Drawing.Size(2, 22);
             this.valGameMap.TabIndex = 2;
             this.valGameMap.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valGameMap.GetChildAt(0))).Text = "";
@@ -617,7 +799,7 @@
             this.lblGameMap.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblGameMap.Location = new System.Drawing.Point(0, 0);
             this.lblGameMap.Name = "lblGameMap";
-            this.lblGameMap.Size = new System.Drawing.Size(64, 18);
+            this.lblGameMap.Size = new System.Drawing.Size(64, 22);
             this.lblGameMap.TabIndex = 1;
             this.lblGameMap.Text = "Game Map:";
             this.lblGameMap.ThemeName = "VisualStudio2012Dark";
@@ -643,7 +825,7 @@
             this.valPlayers.Dock = System.Windows.Forms.DockStyle.Right;
             this.valPlayers.Location = new System.Drawing.Point(175, 0);
             this.valPlayers.Name = "valPlayers";
-            this.valPlayers.Size = new System.Drawing.Size(2, 2);
+            this.valPlayers.Size = new System.Drawing.Size(2, 22);
             this.valPlayers.TabIndex = 2;
             this.valPlayers.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valPlayers.GetChildAt(0))).Text = "";
@@ -654,7 +836,7 @@
             this.lblPlayers.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblPlayers.Location = new System.Drawing.Point(0, 0);
             this.lblPlayers.Name = "lblPlayers";
-            this.lblPlayers.Size = new System.Drawing.Size(44, 18);
+            this.lblPlayers.Size = new System.Drawing.Size(44, 22);
             this.lblPlayers.TabIndex = 1;
             this.lblPlayers.Text = "Players:";
             this.lblPlayers.ThemeName = "VisualStudio2012Dark";
@@ -680,7 +862,7 @@
             this.valGameVersion.Dock = System.Windows.Forms.DockStyle.Right;
             this.valGameVersion.Location = new System.Drawing.Point(175, 0);
             this.valGameVersion.Name = "valGameVersion";
-            this.valGameVersion.Size = new System.Drawing.Size(2, 2);
+            this.valGameVersion.Size = new System.Drawing.Size(2, 22);
             this.valGameVersion.TabIndex = 2;
             this.valGameVersion.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valGameVersion.GetChildAt(0))).Text = "";
@@ -691,7 +873,7 @@
             this.lblGameVersion.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblGameVersion.Location = new System.Drawing.Point(0, 0);
             this.lblGameVersion.Name = "lblGameVersion";
-            this.lblGameVersion.Size = new System.Drawing.Size(78, 18);
+            this.lblGameVersion.Size = new System.Drawing.Size(78, 22);
             this.lblGameVersion.TabIndex = 1;
             this.lblGameVersion.Text = "Game Version:";
             this.lblGameVersion.ThemeName = "VisualStudio2012Dark";
@@ -717,7 +899,7 @@
             this.valGameMode.Dock = System.Windows.Forms.DockStyle.Right;
             this.valGameMode.Location = new System.Drawing.Point(175, 0);
             this.valGameMode.Name = "valGameMode";
-            this.valGameMode.Size = new System.Drawing.Size(2, 2);
+            this.valGameMode.Size = new System.Drawing.Size(2, 22);
             this.valGameMode.TabIndex = 2;
             this.valGameMode.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valGameMode.GetChildAt(0))).Text = "";
@@ -728,54 +910,12 @@
             this.lblGameMode.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblGameMode.Location = new System.Drawing.Point(0, 0);
             this.lblGameMode.Name = "lblGameMode";
-            this.lblGameMode.Size = new System.Drawing.Size(70, 18);
+            this.lblGameMode.Size = new System.Drawing.Size(70, 22);
             this.lblGameMode.TabIndex = 1;
             this.lblGameMode.Text = "Game Mode:";
             this.lblGameMode.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.lblGameMode.GetChildAt(0))).Text = "Game Mode:";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.lblGameMode.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
-            // 
-            // playersList
-            // 
-            this.playersList.AllowColumnReorder = false;
-            this.playersList.AllowColumnResize = false;
-            this.playersList.AllowEdit = false;
-            this.playersList.AllowRemove = false;
-            listViewDetailColumn4.HeaderText = "Host IP";
-            listViewDetailColumn5.HeaderText = "Port";
-            listViewDetailColumn5.MinWidth = 40F;
-            listViewDetailColumn5.Width = 60F;
-            listViewDetailColumn6.HeaderText = "Fav";
-            listViewDetailColumn6.MaxWidth = 40F;
-            listViewDetailColumn6.Width = 40F;
-            this.playersList.Columns.AddRange(new Telerik.WinControls.UI.ListViewDetailColumn[] {
-            listViewDetailColumn4,
-            listViewDetailColumn5,
-            listViewDetailColumn6});
-            this.playersList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playersList.EnableColumnSort = true;
-            this.playersList.EnableFiltering = true;
-            this.playersList.EnableSorting = true;
-            this.playersList.Location = new System.Drawing.Point(2, 25);
-            this.playersList.Name = "playersList";
-            this.playersList.Size = new System.Drawing.Size(196, 543);
-            this.playersList.TabIndex = 1;
-            this.playersList.TabStop = false;
-            this.playersList.ThemeName = "VisualStudio2012Dark";
-            // 
-            // addressListGroup
-            // 
-            this.addressListGroup.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.addressListGroup.Controls.Add(this.addressList);
-            this.addressListGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addressListGroup.HeaderText = "Servers List";
-            this.addressListGroup.Location = new System.Drawing.Point(0, 0);
-            this.addressListGroup.Name = "addressListGroup";
-            this.addressListGroup.Padding = new System.Windows.Forms.Padding(2, 25, 2, 2);
-            this.addressListGroup.Size = new System.Drawing.Size(228, 442);
-            this.addressListGroup.TabIndex = 3;
-            this.addressListGroup.Text = "Servers List";
-            this.addressListGroup.ThemeName = "VisualStudio2012Dark";
             // 
             // object_da7cb646_7c5b_4312_ba82_62caea25b02a
             // 
@@ -783,34 +923,6 @@
             this.object_da7cb646_7c5b_4312_ba82_62caea25b02a.StretchHorizontally = true;
             this.object_da7cb646_7c5b_4312_ba82_62caea25b02a.StretchVertically = true;
             this.object_da7cb646_7c5b_4312_ba82_62caea25b02a.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // pluginsList
-            // 
-            this.pluginsList.AllowColumnReorder = false;
-            this.pluginsList.AllowColumnResize = false;
-            this.pluginsList.AllowEdit = false;
-            this.pluginsList.AllowRemove = false;
-            listViewDetailColumn7.HeaderText = "Host IP";
-            listViewDetailColumn8.HeaderText = "Port";
-            listViewDetailColumn8.MinWidth = 40F;
-            listViewDetailColumn8.Width = 60F;
-            listViewDetailColumn9.HeaderText = "Fav";
-            listViewDetailColumn9.MaxWidth = 40F;
-            listViewDetailColumn9.Width = 40F;
-            this.pluginsList.Columns.AddRange(new Telerik.WinControls.UI.ListViewDetailColumn[] {
-            listViewDetailColumn7,
-            listViewDetailColumn8,
-            listViewDetailColumn9});
-            this.pluginsList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pluginsList.EnableColumnSort = true;
-            this.pluginsList.EnableFiltering = true;
-            this.pluginsList.EnableSorting = true;
-            this.pluginsList.Location = new System.Drawing.Point(2, 25);
-            this.pluginsList.Name = "pluginsList";
-            this.pluginsList.Size = new System.Drawing.Size(360, 353);
-            this.pluginsList.TabIndex = 2;
-            this.pluginsList.TabStop = false;
-            this.pluginsList.ThemeName = "VisualStudio2012Dark";
             // 
             // MSS
             // 
@@ -832,6 +944,8 @@
             this.ThemeName = "VisualStudio2012Dark";
             ((System.ComponentModel.ISupportInitialize)(this.leftPanel)).EndInit();
             this.leftPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.addressListGroup)).EndInit();
+            this.addressListGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.addressList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressPanelManager)).EndInit();
             this.addressPanelManager.ResumeLayout(false);
@@ -849,39 +963,51 @@
             this.rightPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.playersListGroup)).EndInit();
             this.playersListGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.playersList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.centerPanel)).EndInit();
             this.centerPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pluginsPanel)).EndInit();
             this.pluginsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsListGroup)).EndInit();
+            this.pluginsListGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customCommandsServerPanel)).EndInit();
+            this.customCommandsServerPanel.ResumeLayout(false);
+            this.customCommandsServerPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valServerResponse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblServerResponse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoPanel)).EndInit();
             this.infoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serverGroup)).EndInit();
             this.serverGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.minecraftGroup)).EndInit();
-            this.minecraftGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lblGameId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customCommandsServerPanel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pluginsListGroup)).EndInit();
-            this.pluginsListGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.serverGameIdPanel)).EndInit();
-            this.serverGameIdPanel.ResumeLayout(false);
-            this.serverGameIdPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.valGameId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.serverGameVersionPanel)).EndInit();
-            this.serverGameVersionPanel.ResumeLayout(false);
-            this.serverGameVersionPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.valMOTD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblMOTD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.serverHostIpPanel)).EndInit();
-            this.serverHostIpPanel.ResumeLayout(false);
-            this.serverHostIpPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.valServerHostIP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblServerHostIP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameServerInfoPanel)).EndInit();
+            this.gameServerInfoPanel.ResumeLayout(false);
+            this.gameServerInfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valServerInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblServerInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serverHostPortPanel)).EndInit();
             this.serverHostPortPanel.ResumeLayout(false);
             this.serverHostPortPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valServerHostPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblServerHostPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serverHostIpPanel)).EndInit();
+            this.serverHostIpPanel.ResumeLayout(false);
+            this.serverHostIpPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valServerHostIP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblServerHostIP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serverGameVersionPanel)).EndInit();
+            this.serverGameVersionPanel.ResumeLayout(false);
+            this.serverGameVersionPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valMOTD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblMOTD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serverGameIdPanel)).EndInit();
+            this.serverGameIdPanel.ResumeLayout(false);
+            this.serverGameIdPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.valGameId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblGameId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minecraftGroup)).EndInit();
+            this.minecraftGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gameMapPanel)).EndInit();
             this.gameMapPanel.ResumeLayout(false);
             this.gameMapPanel.PerformLayout();
@@ -902,10 +1028,6 @@
             this.gameModePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valGameMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblGameMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressListGroup)).EndInit();
-            this.addressListGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pluginsList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -919,7 +1041,6 @@
         private Telerik.WinControls.UI.RadPanel centerPanel;
         private Telerik.WinControls.UI.RadListView addressList;
         private Telerik.WinControls.UI.RadPanel addressPanelManager;
-        private Telerik.WinControls.UI.RadTextBox valHostPort;
         private Telerik.WinControls.UI.RadLabel lblHostPort;
         private Telerik.WinControls.UI.RadTextBox valHostIP;
         private Telerik.WinControls.UI.RadLabel lblHostIP;
@@ -963,5 +1084,12 @@
         private Telerik.WinControls.UI.RadGroupBox addressListGroup;
         private Telerik.WinControls.RootRadElement object_da7cb646_7c5b_4312_ba82_62caea25b02a;
         private Telerik.WinControls.UI.RadListView pluginsList;
+        private Telerik.WinControls.UI.RadPanel gameServerInfoPanel;
+        private Telerik.WinControls.UI.RadLabel valServerInfo;
+        private Telerik.WinControls.UI.RadLabel lblServerInfo;
+        private Telerik.WinControls.UI.RadSpinEditor valHostPort;
+        private Telerik.WinControls.UI.RadLabel valServerResponse;
+        private Telerik.WinControls.UI.RadLabel lblServerResponse;
+        private Telerik.WinControls.UI.RadButton btnInfo;
     }
 }

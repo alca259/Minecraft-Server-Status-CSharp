@@ -125,6 +125,7 @@
   <ItemGroup>
     <Content Include="Libs\log4net.dll" />
     <Content Include="Resources\icon.ico" />
+    <EmbeddedResource Include="Resources\info.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

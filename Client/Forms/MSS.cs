@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Client.Logic;
 using Client.Resources;
 using Client.Utils;
+using Telerik.WinControls;
 using Telerik.WinControls.UI;
 
 namespace Client.Forms
@@ -16,6 +17,7 @@ namespace Client.Forms
         {
             Font titleFont = new Font(FormElement.TitleBar.Font.FontFamily, 10.0F, FontStyle.Regular);
             InitializeComponent();
+            RadMessageBox.SetThemeName("VisualStudio2012Dark");
             FormElement.TitleBar.TitlePrimitive.Font = titleFont;
             AddressManager.Initialize();
             ReloadAddressList();
@@ -25,9 +27,51 @@ namespace Client.Forms
         #region Reload data
         private void ReloadAddressList()
         {
-            addressList.DataSource = AddressManager.GetAll().OrderByDescending(o => o.Favorite);
+            addressList.DataSource = AddressManager.GetAll()
+                .OrderByDescending(o => o.Favorite)
+                .ThenBy(o => o.HostIp)
+                .ThenBy(o => o.HostPort);
             addressList.DisplayMember = "Text";
             addressList.ValueMember = "Id";
+        }
+
+        private void RefreshServerData(bool ForceReload = false)
+        {
+            AddressModel model = AddressManager.Get(valHostIP.Text, valHostPort.Text);
+            model.Id = model.Id == Guid.Empty ? Guid.NewGuid() : model.Id;
+            model.HostIp = valHostIP.Text;
+            model.HostPort = int.Parse(valHostPort.Text);
+
+            // If have force reload, or response of the model is null
+            if (ForceReload || model.Response == null)
+            {
+                // Launch petition
+                MCQuery query = new MCQuery();
+
+                // Save properties
+                model.Response = query.Query(model.HostIp, model.HostPort);
+                valServerResponse.Text = string.Format(Messages.PingServer, query.timeReply);
+                AddressManager.Add(model);
+            }
+            else
+            {
+                valServerResponse.Text = Messages.LocalPingServer;
+            }
+
+            // Asign data
+            valGameMode.Text = model.Response.GetGameMode();
+            valGameVersion.Text = model.Response.GetGameVersion();
+            valPlayers.Text = model.Response.GetPlayers();
+            valGameMap.Text = model.Response.GetMapName();
+
+            valGameId.Text = model.Response.GetGameId();
+            valMOTD.Text = model.Response.GetMOTD();
+            valServerHostIP.Text = model.Response.GetHostIP();
+            valServerHostPort.Text = model.Response.GetHostPort().ToString();
+            valServerInfo.Text = model.Response.GetServerInfo();
+
+            pluginsList.DataSource = model.Response.GetPlugins();
+            playersList.DataSource = model.Response.GetPlayerList();
         }
         #endregion
 
@@ -51,6 +95,7 @@ namespace Client.Forms
             valHostIP.Text = model.HostIp;
             valHostPort.Text = model.HostPort.ToString();
             valFavorite.Checked = model.Favorite;
+            RefreshServerData();
         }
         #endregion
 
@@ -75,9 +120,8 @@ namespace Client.Forms
 
             if (model.Favorite)
             {
-                if (
-                    MessageBox.Show(Messages.AreYouSureToDelete, Messages.Confirm, MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) != DialogResult.Yes) return;
+                DialogResult result = RadMessageBox.Show(Messages.AreYouSureToDelete, Messages.Confirm, MessageBoxButtons.YesNo, RadMessageIcon.Question);
+                if (result != DialogResult.Yes) return;
                 AddressManager.Remove(model);
                 ReloadAddressList();
             }
@@ -90,7 +134,12 @@ namespace Client.Forms
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            RefreshServerData(true);
+        }
 
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            RadMessageBox.Show(Messages.AboutMe.Replace(@"\n", Environment.NewLine), Messages.Info, MessageBoxButtons.OK, RadMessageIcon.Info);
         }
         #endregion
     }
