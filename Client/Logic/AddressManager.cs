@@ -59,6 +59,7 @@ namespace Client.Logic
                     model.HostIp = address.HostIp;
                     model.HostPort = address.HostPort;
                     model.Favorite = address.Favorite;
+                    model.Response = address.Response;
                     SetXml();
                 }
             }
