@@ -21,6 +21,13 @@ namespace Client.Forms
             FormElement.TitleBar.TitlePrimitive.Font = titleFont;
             AddressManager.Initialize();
             ReloadAddressList();
+
+            // Events start
+            addressList.SelectedItemChanged += addressList_SelectedItemChanged;
+            btnDelete.Click += btnDelete_Click;
+            btnSave.Click += btnSave_Click;
+            btnRefresh.Click += btnRefresh_Click;
+            btnInfo.Click += btnInfo_Click;
         }
         #endregion
 
@@ -41,6 +48,8 @@ namespace Client.Forms
             model.Id = model.Id == Guid.Empty ? Guid.NewGuid() : model.Id;
             model.HostIp = valHostIP.Text;
             model.HostPort = int.Parse(valHostPort.Text);
+
+            if (string.IsNullOrEmpty(model.HostIp)) return;
 
             // If have force reload, or response of the model is null
             if (ForceReload || model.Response == null)
@@ -107,6 +116,9 @@ namespace Client.Forms
             model.HostIp = valHostIP.Text;
             model.HostPort = int.Parse(valHostPort.Text);
             model.Favorite = valFavorite.Checked;
+
+            if (string.IsNullOrEmpty(model.HostIp)) return;
+
             AddressManager.Add(model);
             ReloadAddressList();
         }
@@ -120,7 +132,8 @@ namespace Client.Forms
 
             if (model.Favorite)
             {
-                DialogResult result = RadMessageBox.Show(Messages.AreYouSureToDelete, Messages.Confirm, MessageBoxButtons.YesNo, RadMessageIcon.Question);
+                DialogResult result = RadMessageBox.Show(string.Format(Messages.AreYouSureToDelete, model.HostIp),
+                    Messages.Confirm, MessageBoxButtons.YesNo, RadMessageIcon.Question);
                 if (result != DialogResult.Yes) return;
                 AddressManager.Remove(model);
                 ReloadAddressList();
@@ -139,7 +152,8 @@ namespace Client.Forms
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            RadMessageBox.Show(Messages.AboutMe.Replace(@"\n", Environment.NewLine), Messages.Info, MessageBoxButtons.OK, RadMessageIcon.Info);
+            RadMessageBox.Show(Messages.AboutMe.Replace(@"\n", Environment.NewLine), Messages.Info,
+                MessageBoxButtons.OK, RadMessageIcon.Info);
         }
         #endregion
     }

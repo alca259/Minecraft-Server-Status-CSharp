@@ -70,7 +70,7 @@ namespace Client.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Are you really want to delete this server?.
+        ///   Busca una cadena traducida similar a Are you really want to delete server {0}?.
         /// </summary>
         internal static string AreYouSureToDelete {
             get {

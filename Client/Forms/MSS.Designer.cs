@@ -225,7 +225,6 @@
             this.addressList.TabIndex = 0;
             this.addressList.TabStop = false;
             this.addressList.ThemeName = "VisualStudio2012Dark";
-            this.addressList.SelectedItemChanged += new System.EventHandler(this.addressList_SelectedItemChanged);
             ((Telerik.WinControls.UI.RadListViewElement)(this.addressList.GetChildAt(0))).BorderWidth = 1F;
             // 
             // addressPanelManager
@@ -255,7 +254,7 @@
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.ThemeName = "VisualStudio2012Dark";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            
             // 
             // btnSave
             // 
@@ -265,7 +264,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.ThemeName = "VisualStudio2012Dark";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            
             // 
             // btnRefresh
             // 
@@ -276,7 +275,7 @@
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.ThemeName = "VisualStudio2012Dark";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            
             // 
             // valFavorite
             // 
@@ -505,7 +504,7 @@
             this.btnInfo.Size = new System.Drawing.Size(25, 25);
             this.btnInfo.TabIndex = 8;
             this.btnInfo.ThemeName = "VisualStudio2012Dark";
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.btnInfo.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.btnInfo.GetChildAt(0).GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 

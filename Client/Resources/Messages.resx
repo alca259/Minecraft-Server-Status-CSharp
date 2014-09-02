@@ -121,7 +121,7 @@
     <value>Developed by Alca259 &lt;alca259@gmail.com&gt;\nwith GPL license v3.0</value>
   </data>
   <data name="AreYouSureToDelete" xml:space="preserve">
-    <value>Are you really want to delete this server?</value>
+    <value>Are you really want to delete server {0}?</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
