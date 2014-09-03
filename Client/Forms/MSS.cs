@@ -49,7 +49,25 @@ namespace Client.Forms
             model.HostIp = valHostIP.Text;
             model.HostPort = int.Parse(valHostPort.Text);
 
-            if (string.IsNullOrEmpty(model.HostIp)) return;
+            if (string.IsNullOrEmpty(model.HostIp))
+            {
+                if (addressList.SelectedItems.Count <= 0)
+                    return;
+
+                if (addressList.SelectedItem.Value is AddressModel)
+                {
+                    model = (AddressModel)addressList.SelectedItem.Value;
+                }
+                else
+                {
+                    Guid id = Guid.Parse(addressList.SelectedItem.Value.ToString());
+                    model = AddressManager.Get(id);
+                }
+
+                valHostIP.Text = model.HostIp;
+                valHostPort.Text = model.HostPort.ToString();
+                valFavorite.Checked = model.Favorite;
+            }
 
             // If have force reload, or response of the model is null
             if (ForceReload || model.Response == null)
