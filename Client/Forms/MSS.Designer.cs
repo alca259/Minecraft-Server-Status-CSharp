@@ -254,7 +254,6 @@
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.ThemeName = "VisualStudio2012Dark";
-            
             // 
             // btnSave
             // 
@@ -264,7 +263,6 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.ThemeName = "VisualStudio2012Dark";
-            
             // 
             // btnRefresh
             // 
@@ -275,7 +273,6 @@
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.ThemeName = "VisualStudio2012Dark";
-            
             // 
             // valFavorite
             // 
@@ -504,7 +501,8 @@
             this.btnInfo.Size = new System.Drawing.Size(25, 25);
             this.btnInfo.TabIndex = 8;
             this.btnInfo.ThemeName = "VisualStudio2012Dark";
-            
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnInfo.GetChildAt(0))).Image = global::Client.Properties.Resources.info;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnInfo.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.btnInfo.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(58)))));
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.btnInfo.GetChildAt(0).GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 
@@ -582,10 +580,10 @@
             // 
             // valServerInfo
             // 
-            this.valServerInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valServerInfo.Location = new System.Drawing.Point(123, 0);
+            this.valServerInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valServerInfo.Location = new System.Drawing.Point(40, 0);
             this.valServerInfo.Name = "valServerInfo";
-            this.valServerInfo.Size = new System.Drawing.Size(2, 22);
+            this.valServerInfo.Size = new System.Drawing.Size(2, 2);
             this.valServerInfo.TabIndex = 2;
             this.valServerInfo.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valServerInfo.GetChildAt(0))).Text = "";
@@ -619,10 +617,10 @@
             // 
             // valServerHostPort
             // 
-            this.valServerHostPort.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valServerHostPort.Location = new System.Drawing.Point(123, 0);
+            this.valServerHostPort.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valServerHostPort.Location = new System.Drawing.Point(56, 0);
             this.valServerHostPort.Name = "valServerHostPort";
-            this.valServerHostPort.Size = new System.Drawing.Size(2, 22);
+            this.valServerHostPort.Size = new System.Drawing.Size(2, 2);
             this.valServerHostPort.TabIndex = 2;
             this.valServerHostPort.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valServerHostPort.GetChildAt(0))).Text = "";
@@ -656,10 +654,10 @@
             // 
             // valServerHostIP
             // 
-            this.valServerHostIP.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valServerHostIP.Location = new System.Drawing.Point(123, 0);
+            this.valServerHostIP.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valServerHostIP.Location = new System.Drawing.Point(44, 0);
             this.valServerHostIP.Name = "valServerHostIP";
-            this.valServerHostIP.Size = new System.Drawing.Size(2, 22);
+            this.valServerHostIP.Size = new System.Drawing.Size(2, 2);
             this.valServerHostIP.TabIndex = 2;
             this.valServerHostIP.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valServerHostIP.GetChildAt(0))).Text = "";
@@ -693,10 +691,10 @@
             // 
             // valMOTD
             // 
-            this.valMOTD.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valMOTD.Location = new System.Drawing.Point(123, 0);
+            this.valMOTD.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valMOTD.Location = new System.Drawing.Point(41, 0);
             this.valMOTD.Name = "valMOTD";
-            this.valMOTD.Size = new System.Drawing.Size(2, 22);
+            this.valMOTD.Size = new System.Drawing.Size(2, 2);
             this.valMOTD.TabIndex = 2;
             this.valMOTD.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valMOTD.GetChildAt(0))).Text = "";
@@ -730,10 +728,10 @@
             // 
             // valGameId
             // 
-            this.valGameId.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valGameId.Location = new System.Drawing.Point(123, 0);
+            this.valGameId.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valGameId.Location = new System.Drawing.Point(52, 0);
             this.valGameId.Name = "valGameId";
-            this.valGameId.Size = new System.Drawing.Size(2, 22);
+            this.valGameId.Size = new System.Drawing.Size(2, 2);
             this.valGameId.TabIndex = 2;
             this.valGameId.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valGameId.GetChildAt(0))).Text = "";
@@ -784,10 +782,10 @@
             // 
             // valGameMap
             // 
-            this.valGameMap.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valGameMap.Location = new System.Drawing.Point(175, 0);
+            this.valGameMap.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valGameMap.Location = new System.Drawing.Point(64, 0);
             this.valGameMap.Name = "valGameMap";
-            this.valGameMap.Size = new System.Drawing.Size(2, 22);
+            this.valGameMap.Size = new System.Drawing.Size(2, 2);
             this.valGameMap.TabIndex = 2;
             this.valGameMap.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valGameMap.GetChildAt(0))).Text = "";
@@ -821,10 +819,10 @@
             // 
             // valPlayers
             // 
-            this.valPlayers.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valPlayers.Location = new System.Drawing.Point(175, 0);
+            this.valPlayers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valPlayers.Location = new System.Drawing.Point(44, 0);
             this.valPlayers.Name = "valPlayers";
-            this.valPlayers.Size = new System.Drawing.Size(2, 22);
+            this.valPlayers.Size = new System.Drawing.Size(2, 2);
             this.valPlayers.TabIndex = 2;
             this.valPlayers.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valPlayers.GetChildAt(0))).Text = "";
@@ -858,10 +856,10 @@
             // 
             // valGameVersion
             // 
-            this.valGameVersion.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valGameVersion.Location = new System.Drawing.Point(175, 0);
+            this.valGameVersion.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valGameVersion.Location = new System.Drawing.Point(78, 0);
             this.valGameVersion.Name = "valGameVersion";
-            this.valGameVersion.Size = new System.Drawing.Size(2, 22);
+            this.valGameVersion.Size = new System.Drawing.Size(2, 2);
             this.valGameVersion.TabIndex = 2;
             this.valGameVersion.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valGameVersion.GetChildAt(0))).Text = "";
@@ -895,10 +893,10 @@
             // 
             // valGameMode
             // 
-            this.valGameMode.Dock = System.Windows.Forms.DockStyle.Right;
-            this.valGameMode.Location = new System.Drawing.Point(175, 0);
+            this.valGameMode.Dock = System.Windows.Forms.DockStyle.Left;
+            this.valGameMode.Location = new System.Drawing.Point(70, 0);
             this.valGameMode.Name = "valGameMode";
-            this.valGameMode.Size = new System.Drawing.Size(2, 22);
+            this.valGameMode.Size = new System.Drawing.Size(2, 2);
             this.valGameMode.TabIndex = 2;
             this.valGameMode.ThemeName = "VisualStudio2012Dark";
             ((Telerik.WinControls.UI.RadLabelElement)(this.valGameMode.GetChildAt(0))).Text = "";
