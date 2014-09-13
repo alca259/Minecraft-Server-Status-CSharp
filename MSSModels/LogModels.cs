@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Client.Utils
+namespace MSSModels
 {
     public class LogModel
     {

@@ -1,4 +1,4 @@
-﻿namespace Client.Utils
+﻿namespace MSSUtils.Logger
 {
     public static class LogConfig
     {

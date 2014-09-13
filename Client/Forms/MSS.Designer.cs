@@ -1,4 +1,4 @@
-﻿namespace Client.Forms
+﻿namespace MSSClient.Forms
 {
     partial class MSS
     {

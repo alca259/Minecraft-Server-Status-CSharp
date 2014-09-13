@@ -2,7 +2,7 @@
 using log4net;
 using log4net.Core;
 
-namespace Client.Utils
+namespace MSSUtils.Logger
 {
     public static class Logger
     {

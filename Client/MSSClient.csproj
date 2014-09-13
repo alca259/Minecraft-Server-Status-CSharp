@@ -8,7 +8,7 @@
     <ProjectGuid>{B775C24B-A06B-4157-93B9-0DD89611E5B2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Client</RootNamespace>
+    <RootNamespace>MSSClient</RootNamespace>
     <AssemblyName>MSSClient</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
@@ -35,16 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Client.Start</StartupObject>
+    <StartupObject>MSSClient.Start</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libs\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,31 +51,17 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.WinControls, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.ChartView, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.GridView, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.PdfViewer, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.PivotGrid, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.RadChart, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.RadDock, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.RadMarkupEditor, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.Scheduler, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.UI, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.UI.Design, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="TelerikCommon, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="TelerikData, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logic\AddressManager.cs" />
-    <Compile Include="Logic\MCQuery.cs" />
-    <Compile Include="Forms\MSS.cs">
+    <Compile Include="Forms\WFM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MSS.Designer.cs">
-      <DependentUpon>MSS.cs</DependentUpon>
+    <Compile Include="Forms\WFM.Designer.cs">
+      <DependentUpon>WFM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\AddressManager.cs" />
     <Compile Include="Logic\QueryResponse.cs" />
+    <Compile Include="Logic\MCQuery.cs" />
     <Compile Include="Resources\Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,14 +69,8 @@
     </Compile>
     <Compile Include="Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\AddressModel.cs" />
-    <Compile Include="Utils\CustomLogger.cs" />
-    <Compile Include="Utils\LogConfig.cs" />
-    <Compile Include="Utils\Logger.cs" />
-    <Compile Include="Utils\LogModels.cs" />
-    <Compile Include="Utils\UnknownHostException.cs" />
-    <EmbeddedResource Include="Forms\MSS.resx">
-      <DependentUpon>MSS.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WFM.resx">
+      <DependentUpon>WFM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,7 +97,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MSSLogic\MSSLogic.csproj">
+      <Project>{048585ce-1abc-45a7-876f-92c312a853ff}</Project>
+      <Name>MSSLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSSModels\MSSModels.csproj">
+      <Project>{20382f98-e2b9-473a-a480-4c8c2f88d86e}</Project>
+      <Name>MSSModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSSUtils\MSSUtils.csproj">
+      <Project>{a3fef49e-8f6d-4e20-8b04-1a6832ff8986}</Project>
+      <Name>MSSUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Libs\log4net.dll" />
     <Content Include="Resources\icon.ico" />

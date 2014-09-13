@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using Client.Utils;
+using MSSModels;
 
-namespace Client.Logic
+namespace MSSClient.Logic
 {
     public static class AddressManager
     {
@@ -59,7 +59,7 @@ namespace Client.Logic
                     model.HostIp = address.HostIp;
                     model.HostPort = address.HostPort;
                     model.Favorite = address.Favorite;
-                    model.Response = address.Response;
+                    //model.Response = address.Response;
                     SetXml();
                 }
             }

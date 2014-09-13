@@ -4,7 +4,7 @@ using System.Xml;
 using log4net.Core;
 using log4net.Layout;
 
-namespace Client.Utils
+namespace MSSUtils.Logger
 {
     public class CustomLoggerFileAppender : log4net.Appender.RollingFileAppender
     {
@@ -105,18 +105,20 @@ namespace Client.Utils
         /// <param name="ex">Excepcion</param>
         /// <param name="fullMessage">Mensaje hasta ahora</param>
         /// <returns></returns>
-        private string GetFullMessage(Exception ex, string fullMessage)
+        private static string GetFullMessage(Exception ex, string fullMessage)
         {
-            if (ex != null)
+            while (true)
             {
-                fullMessage = string.Concat(fullMessage, "\n", ex.Message);
-                return GetFullMessage(ex.InnerException, fullMessage);
-            }
-            else
-            {
-                return fullMessage;
+                if (ex != null)
+                {
+                    fullMessage = string.Concat(fullMessage, "\n", ex.Message);
+                    ex = ex.InnerException;
+                }
+                else
+                {
+                    return fullMessage;
+                }
             }
         }
-
     }
 }

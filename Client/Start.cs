@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using Client.Forms;
-using Client.Utils;
+using MSSClient.Forms;
+using MSSUtils.Logger;
 
-namespace Client
+namespace MSSClient
 {
     static class Start
     {
@@ -16,7 +16,7 @@ namespace Client
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             LogConfig.Configure();
-            Application.Run(new MSS());
+            Application.Run(new WFM());
         }
     }
 }

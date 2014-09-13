@@ -2,15 +2,13 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Client.Logic;
-using Client.Resources;
-using Client.Utils;
-using Telerik.WinControls;
-using Telerik.WinControls.UI;
+using MSSClient.Logic;
+using MSSClient.Resources;
+using MSSModels;
 
-namespace Client.Forms
+namespace MSSClient.Forms
 {
-    public partial class MSS : RadForm
+    public partial class MSS : Form
     {
         #region Initialize
         public MSS()
@@ -72,11 +70,8 @@ namespace Client.Forms
             // If have force reload, or response of the model is null
             if (ForceReload || model.Response == null)
             {
-                // Launch petition
-                MCQuery query = new MCQuery();
-
                 // Save properties
-                model.Response = query.Query(model.HostIp, model.HostPort);
+                model.Response = MCQuery.Query(model.HostIp, model.HostPort);
                 valServerResponse.Text = string.Format(Messages.PingServer, query.timeReply);
                 AddressManager.Add(model);
             }

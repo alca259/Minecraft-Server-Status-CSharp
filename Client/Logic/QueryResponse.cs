@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Client.Resources;
+using MSSClient.Resources;
+using MSSUtils.Byte;
 
-namespace Client.Logic 
+namespace MSSClient.Logic 
 {
     public class QueryResponse
     {
@@ -26,7 +26,7 @@ namespace Client.Logic
         public QueryResponse() {}
         public QueryResponse(byte[] data)
         {
-            List<string> datos = SplitByteArray(data);
+            List<string> datos = ByteUtils.SplitByteArray(data);
 
             _motd = datos[3];
             _gameMode = datos[5];
@@ -145,80 +145,6 @@ namespace Client.Logic
         public List<string> GetPlayerList()
         {
             return _playerList;
-        }
-        #endregion
-
-        #region Byte Utils
-
-        private List<string> SplitByteArray(byte[] input)
-        {
-            // Limpiamos el inicio y el final de caracteres nulos
-            input = CleanByteArray(input);
-
-            List<string> output = new List<string>();
-            List<byte> bytes = new List<byte>();
-
-            foreach (byte bInput in input)
-            {
-                if (bInput == 0x00)
-                {
-                    string data = string.Empty;
-                    if (bytes.Count > 0)
-                    {
-                        data = Encoding.UTF8.GetString(bytes.ToArray()).Trim();
-                    }
-                    
-                    output.Add(data);
-                    bytes = new List<byte>();
-                }
-                else
-                {
-                    bytes.Add(bInput);
-                }
-            }
-
-            return output;
-        }
-
-        private byte[] CleanByteArray(byte[] inputBytes)
-        {
-            // Variables de indices
-            int firstIndex = 0;
-            int lastIndex = inputBytes.Length;
-
-            // Buscamos el primer cáracter no nulo
-            for (int i = 0; i < inputBytes.Length; i++)
-            {
-                if (inputBytes[i] == 0x00) continue;
-
-                firstIndex = i;
-                break;
-            }
-
-            // Buscamos el último cáracter no nulo
-            for (int i = inputBytes.Length - 1; i >= 0; i--)
-            {
-                if (inputBytes[i] == 0x00) continue;
-
-                lastIndex = i + 1;
-                break;
-            }
-
-            return SubByteArray(inputBytes, firstIndex, lastIndex);
-        }
-
-        private byte[] SubByteArray(byte[] inputBytes, int startIndex, int lastIndex)
-        {
-            if (lastIndex - startIndex > inputBytes.Length) return inputBytes;
-
-            byte[] outputBytes = new byte[(lastIndex - startIndex) + 1];
-
-            for (int i = startIndex; i <= lastIndex; i++)
-            {
-                outputBytes[i - startIndex] = inputBytes[i];
-            }
-
-            return outputBytes;
         }
         #endregion
     }

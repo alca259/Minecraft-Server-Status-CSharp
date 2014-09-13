@@ -1,7 +1,6 @@
 ﻿using System;
-using Client.Logic;
 
-namespace Client.Utils
+namespace MSSModels
 {
     public class AddressModel
     {
@@ -9,7 +8,7 @@ namespace Client.Utils
         public string HostIp { get; set; }
         public int HostPort { get; set; }
         public bool Favorite { get; set; }
-        public QueryResponse Response { get; set; }
+        //public QueryResponse Response { get; set; }
 
         public string Text
         {
